@@ -1,0 +1,8 @@
+node_modules
+dist
+.vercel
+vite.config.ts.timestamp-*
+.env
+.env.local
+.env*
+!.env.example

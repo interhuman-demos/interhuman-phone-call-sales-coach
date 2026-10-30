@@ -1,0 +1,55 @@
+# XcodeGen project definition — run `xcodegen generate` in ios/ to (re)create
+# SalesCoach.xcodeproj. The .xcodeproj itself is not checked in.
+name: SalesCoach
+options:
+  bundleIdPrefix: ai.interhuman
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+
+targets:
+  SalesCoach:
+    type: application
+    platform: iOS
+    sources: [SalesCoach]
+    info:
+      path: SalesCoach/Info.plist
+      properties:
+        UILaunchScreen: {}
+        NSMicrophoneUsageDescription: >-
+          SalesCoach records your pitch so the AI buyer can hear you and the
+          audio analysis can read your delivery.
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "3"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ai.interhuman.salescoach
+        DEVELOPMENT_TEAM: 5F6VXBM4CU
+        SWIFT_VERSION: "5.9"
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_KEY_CFBundleDisplayName: Sales Coach
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+
+  SalesCoachUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [SalesCoachUITests]
+    dependencies:
+      - target: SalesCoach
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: YES
+
+schemes:
+  SalesCoach:
+    build:
+      targets:
+        SalesCoach: all
+        SalesCoachUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets: [SalesCoachUITests]

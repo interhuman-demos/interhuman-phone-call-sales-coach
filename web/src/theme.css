@@ -1,0 +1,70 @@
+/* Design tokens — "Studio" (dark, default) and "Daylight" (light).
+   Switched via [data-theme] on <html>; see App.tsx's theme state. */
+
+:root {
+  --bg: #0d0d0f;
+  --panel: #141419;
+  --panel2: #16161c;
+  --line: #26262e;
+  --line-strong: #2c2c34;
+  --text: #f4f2ee;
+  --dim: #c9c9d0;
+  --muted: #8b8b94;
+  --accent: #f2b53c;
+  --accent-text: #0d0d0f;
+  --good: #35d0bf;
+  --bad: #f56a52;
+  --warn: #f2b53c;
+
+  --font-sans: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-sm: 9px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --shadow-shell: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+:root[data-theme="light"] {
+  --bg: #f5f2ea;
+  --panel: #ffffff;
+  --panel2: #fdfbf6;
+  --line: #e7e0d2;
+  --line-strong: #e0d9cb;
+  --text: #221f19;
+  --dim: #6a6252;
+  --muted: #9a917f;
+  --accent: #c98a1a;
+  --accent-text: #ffffff;
+  --good: #0f9b8a;
+  --bad: #d9553b;
+  --warn: #c98a1a;
+  --shadow-shell: 0 30px 80px rgba(120, 100, 60, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 var(--font-sans);
+}
+
+#root { height: 100vh; }
+
+@keyframes dvRing {
+  0% { transform: scale(0.72); opacity: 0.55; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+@keyframes dvBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes dvWave {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
